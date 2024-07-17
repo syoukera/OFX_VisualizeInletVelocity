@@ -13,6 +13,17 @@ void ofApp::setup(){
     // loadVectors("\\\\CFDGroup18\\Public\\shioyoke\\NH3_HiTAC\\20240709_interpolate\\output\\U_interpolated");
 
     loadPoints("\\\\CFDGroup18\\Public\\shioyoke\\NH3_HiTAC\\20240709_interpolate\\output\\X_interpolated");
+    
+    // 時刻ステップのフォルダ名を読み込む
+    std::vector<std::string> timeSteps = loadTimeSteps("\\\\CFDGroup18\\Public\\shioyoke\\NH3_HiTAC\\20240709_interpolate\\data\\list_foldernames");
+ 
+    // for (size_t i = 0; i < timeSteps.size(); i++) {
+    //     std::cout << timeSteps[i] << std::endl;
+    // }
+
+    // 最大時刻ステップを設定
+    maxTimeStep = timeSteps.size() - 1;
+    
     loadVectors("\\\\CFDGroup18\\Public\\shioyoke\\NH3_HiTAC\\fuel_Xinterp\\0.04404993\\U");
 
     // 座標のスケーリング値を計算
@@ -94,6 +105,16 @@ void ofApp::loadVectors(const std::string& fileName) {
             vectorLengths.push_back(length);
         }
     }
+}
+
+//--------------------------------------------------------------
+std::vector<std::string> ofApp::loadTimeSteps(const std::string& fileName) {
+    std::vector<std::string> timeSteps;
+    ofBuffer buffer = ofBufferFromFile(fileName);
+    for(auto line : buffer.getLines()) {
+        timeSteps.push_back(line);
+    }
+    return timeSteps;
 }
 
 //--------------------------------------------------------------

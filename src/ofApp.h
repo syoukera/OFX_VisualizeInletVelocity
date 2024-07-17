@@ -11,6 +11,7 @@ public:
 
     void loadPoints(const std::string& fileName);
     void loadVectors(const std::string& fileName);
+    std::vector<std::string> loadTimeSteps(const std::string& fileName);
     void calculateScaling();
 
     std::vector<glm::vec2> points; // 2Dポイント
@@ -21,6 +22,8 @@ public:
 
     float maxLength; // ベクトルの最大長さ
     ofEasyCam cam; // ofEasyCamのインスタンス
+
+    int maxTimeStep;
 
     ofxPanel gui; // GUIパネル
     ofxFloatSlider vectorScalingSlider; // ベクトルスケーリングのスライダー
