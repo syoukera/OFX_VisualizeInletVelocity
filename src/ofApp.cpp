@@ -132,9 +132,9 @@ void ofApp::calculateScaling() {
     float maxRange = glm::max(range.x, range.y);
     pointScaling = (ofGetWidth() - 40) / maxRange; // ウィンドウ幅に基づくスケーリングファクター（40はマージン）
 
-    // ベクトルの最大長さを計算
-    maxLength = 0;
-    for(const auto& length : vectorLengths) {
-        maxLength = glm::max(maxLength, length);
-    }
+    // // ベクトルの最大長さを計算
+    // maxLength = 0;
+    // for(const auto& length : vectorLengths) {
+    //     maxLength = glm::max(maxLength, length);
+    // }
 }

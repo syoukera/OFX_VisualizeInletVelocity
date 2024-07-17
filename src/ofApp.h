@@ -20,7 +20,7 @@ public:
     float pointScaling; // 座標のスケーリング値
     float vectorScaling; // ベクトルのスケーリング値
 
-    float maxLength; // ベクトルの最大長さ
+    // float maxLength; // ベクトルの最大長さ
     ofEasyCam cam; // ofEasyCamのインスタンス
 
     int maxTimeStep;
